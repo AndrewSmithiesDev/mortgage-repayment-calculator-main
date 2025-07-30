@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <link rel="stylesheet" href="/css/main.min.css" />
+
+    <script
+      src="https://kit.fontawesome.com/b4023152be.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Frontend Mentor | Mortgage repayment calculator</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="calculator-container">
+        <form class="calculator-form" id="calc-form" novalidate>
+          <div class="calculator">
+            <div class="calculator-title mb-4">
+              <div class="text text-slate900">Mortgage Calculator</div>
+              <div class="clear text-slate500" onclick="resetForm()">
+                Clear All
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="mortgage-amount" class="form-label"
+                >Mortgage Amount</label
+              >
+              <div class="input-group d-flex">
+                <label class="input-group-text fw-bold">£</label>
+                <input
+                  type="number"
+                  class="form-control shadow-none fw-bold"
+                  id="mortgage-amount"
+                  aria-label="Username"
+                  aria-describedby="basic-addon1"
+                  required
+                />
+              </div>
+              <div class="invalid-feedback">This field is required</div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="mortgage-term" class="form-label"
+                    >Mortgage Term</label
+                  >
+                  <div class="input-group">
+                    <input
+                      type="number"
+                      class="form-control shadow-none add-on-right fw-bold"
+                      id="mortgage-term"
+                      aria-label="Username"
+                      aria-describedby="basic-addon1"
+                      required
+                    />
+                    <label
+                      class="input-group-text input-group-text-right fw-bold"
+                      >years</label
+                    >
+                  </div>
+                  <div class="invalid-feedback">This field is required</div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="interest-rate" class="form-label"
+                    >Interest Rate</label
+                  >
+                  <div class="input-group">
+                    <input
+                      type="number"
+                      class="form-control shadow-none add-on-right fw-bold"
+                      id="interest-rate"
+                      aria-label="Username"
+                      aria-describedby="basic-addon2"
+                      required
+                    />
+                    <label
+                      class="input-group-text input-group-text-right fw-bold"
+                      >%</label
+                    >
+                  </div>
+                  <div class="invalid-feedback">This field is required</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <label for="mortgage-type" class="form-label"
+                >Mortgage Type</label
+              >
+              <div class="form-check mortgage-radios mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="mortgage-type"
+                  id="repayment"
+                  value="repayment"
+                  required
+                />
+                <label class="form-check-label" for="repayment">
+                  Repayment
+                </label>
+              </div>
+              <div class="form-check mortgage-radios">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="mortgage-type"
+                  id="interest"
+                  value="interest"
+                  required
+                />
+                <label class="form-check-label" for="interest">
+                  Interest Only
+                </label>
+              </div>
+              <div class="invalid-feedback">This field is required</div>
+            </div>
+
+            <button
+              class="btn bg-lime rounded-5 px-5 py-2 fw-bold text-slate900"
+              id="btn-calculate"
+              type="submit"
+            >
+              <i class="fa-solid fa-calculator me-3 fs-5"></i>Calculate
+              Repayments
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="results d-flex align-items-center">
+        <!-- Empty results start -->
+        <div
+          class="empty-results flex-column text-center align-items-center"
+        >
+          <img
+            src="/assets/images/illustration-empty.svg"
+            class="img-fluid"
+            alt=""
+          />
+          <span class="text-white fw-bold fs-5">Results shown here</span>
+          <span class="text-slate300">
+            Complete the form and click “calculate repayments” to see what your
+            monthly repayments would be.
+          </span>
+        </div>
+        <!-- Empty results end -->
+        <!-- Completed results start -->
+        <div class="completed-results flex-column">
+          <span class="text-white fw-bold fs-5 mb-2">Your results</span>
+          <span class="text-slate300 mb-3">
+            Your results are shown below based on the information you provided.
+            To adjust the results, edit the form and click “calculate
+            repayments” again.
+          </span>
+          <div
+            class="d-flex flex-column bg-slate1000 rounded-2 p-4"
+            id="repayment-results"
+          >
+            <span class="text-slate300 mb-3">Your monthly repayments</span>
+            <span id="monthly-repayments"></span>
+            <hr class="text-slate300 border-2" />
+            <span class="text-slate300 mb-3"
+              >Total you'll repay over the term</span
+            >
+            <span id="repay-term"></span>
+          </div>
+        </div>
+        <!-- Completed results end -->
+      </div>
+    </div>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+      Coded by <a href="#">Andrew Smithies</a>.
+    </div>
+
+    <script src="/js/main.js"></script>
+  </body>
+</html>
